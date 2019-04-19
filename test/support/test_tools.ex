@@ -20,7 +20,8 @@ defmodule MagicHome.TestTools do
     Supervisor.terminate_child(MagicHome.Supervisor, MagicHome.Sensing.Supervisor)
     Supervisor.restart_child(MagicHome.Supervisor, MagicHome.Sensing.Supervisor)
 
-    Process.sleep 10 # Without this, we're getting race condition on lamps/sensors autostart
+    # Without this, we're getting race condition on lamps/sensors autostart
+    Process.sleep(10)
     :ok
   end
 

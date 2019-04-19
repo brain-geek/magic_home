@@ -12,10 +12,11 @@ defmodule MagicHome.Sensing.Sensor do
 
   @doc false
   def changeset(sensor, attrs) do
-    changeset = sensor
-    |> cast(attrs, [:name, :type, :gpio_id])
-    |> validate_required([:name, :type])
-    |> validate_inclusion(:type, ["fake", "gpio_switch"])
+    changeset =
+      sensor
+      |> cast(attrs, [:name, :type, :gpio_id])
+      |> validate_required([:name, :type])
+      |> validate_inclusion(:type, ["fake", "gpio_switch"])
 
     if changeset.changes[:type] == "gpio_switch" do
       changeset |> validate_required([:gpio_id])
