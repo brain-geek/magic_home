@@ -54,7 +54,6 @@ defmodule MagicHome.Mixfile do
       # Connectors to external world
       {:huex, "~> 0.8"},
       # Might need to go to firmware
-      {:circuits_gpio, "~> 0.1"},
       # Needs cowboy ~> 2.2 which is not supported by Phoenix yet
       # {:lifx, github: "rosetta-home/lifx"},
 
