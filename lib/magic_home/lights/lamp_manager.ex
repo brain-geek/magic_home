@@ -57,27 +57,27 @@ defmodule MagicHome.Lights.LampManager do
 
   defp register_lamp(lamp = %MagicHome.Lights.Lamp{id: lamp_id}) do
     ExProcess.Matcher.Task.register_matcher(
-      "Enable light #{lamp.name}",
+      "Enable #{lamp.name}",
       fn _ -> @process_module.light_up(lamp_id) end
     )
 
     ExProcess.Matcher.Task.register_matcher(
-      "Disable light #{lamp.name}",
+      "Disable #{lamp.name}",
       fn _ -> @process_module.light_down(lamp_id) end
     )
 
     ExProcess.Matcher.Task.register_matcher(
-      "Toggle light #{lamp.name}",
+      "Toggle #{lamp.name}",
       fn _ -> @process_module.light_toggle(lamp_id) end
     )
 
     ExProcess.Matcher.FlowCondition.register_matcher(
-      "Light #{lamp.name} is lit",
+      "Light #{lamp.name} lit",
       fn _ -> @process_module.status(lamp_id) == :on end
     )
 
     ExProcess.Matcher.FlowCondition.register_matcher(
-      "Light #{lamp.name} is not lit",
+      "Light #{lamp.name} not lit",
       fn _ -> @process_module.status(lamp_id) == :off end
     )
   end

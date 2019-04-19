@@ -76,9 +76,9 @@ defmodule MagicHome.Sensing.SensorManagerTest do
       MagicHome.Sensing.SensorManager.handle_cast(:run_all, nil)
 
       assert(
-        ExProcess.Matcher.EventReceive.get_subscribe_data("Definitely a switch was triggered") ==
+        ExProcess.Matcher.EventReceive.get_subscribe_data("Definitely a switch triggered") ==
           [
-            {"Definitely a switch was triggered", {:sensor, sensor.id}}
+            {"Definitely a switch triggered", {:sensor, sensor.id}}
           ]
       )
     end

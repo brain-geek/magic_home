@@ -55,15 +55,15 @@ defmodule MagicHome.Lights.LampManagerTest do
       {:ok, _} = MagicHome.Lights.LampManager.start(fake_lamp.id)
       assert(:off = MagicHome.Lights.LampProcess.status(fake_lamp))
 
-      ExProcess.Matcher.Task.run_match("Enable light Fake switch zero")
+      ExProcess.Matcher.Task.run_match("Enable Fake switch zero")
       assert(:on = MagicHome.Lights.LampProcess.status(fake_lamp))
 
-      ExProcess.Matcher.Task.run_match("Disable light Fake switch zero")
+      ExProcess.Matcher.Task.run_match("Disable Fake switch zero")
       assert(:off = MagicHome.Lights.LampProcess.status(fake_lamp))
 
-      ExProcess.Matcher.Task.run_match("Toggle light Fake switch zero")
+      ExProcess.Matcher.Task.run_match("Toggle Fake switch zero")
       assert(:on = MagicHome.Lights.LampProcess.status(fake_lamp))
-      ExProcess.Matcher.Task.run_match("Toggle light Fake switch zero")
+      ExProcess.Matcher.Task.run_match("Toggle Fake switch zero")
       assert(:off = MagicHome.Lights.LampProcess.status(fake_lamp))
     end
 
@@ -71,18 +71,18 @@ defmodule MagicHome.Lights.LampManagerTest do
       fake_lamp = insert(:fake_lamp, name: "Fake switch zero")
       {:ok, _} = MagicHome.Lights.LampManager.start(fake_lamp.id)
 
-      assert(ExProcess.Matcher.FlowCondition.run_match("Light Fake switch zero is lit") == false)
+      assert(ExProcess.Matcher.FlowCondition.run_match("Light Fake switch zero lit") == false)
 
       assert(
-        ExProcess.Matcher.FlowCondition.run_match("Light Fake switch zero is not lit") == true
+        ExProcess.Matcher.FlowCondition.run_match("Light Fake switch zero not lit") == true
       )
 
-      ExProcess.Matcher.Task.run_match("Enable light Fake switch zero")
+      ExProcess.Matcher.Task.run_match("Enable Fake switch zero")
 
-      assert(ExProcess.Matcher.FlowCondition.run_match("Light Fake switch zero is lit") == true)
+      assert(ExProcess.Matcher.FlowCondition.run_match("Light Fake switch zero lit") == true)
 
       assert(
-        ExProcess.Matcher.FlowCondition.run_match("Light Fake switch zero is not lit") == false
+        ExProcess.Matcher.FlowCondition.run_match("Light Fake switch zero not lit") == false
       )
     end
   end

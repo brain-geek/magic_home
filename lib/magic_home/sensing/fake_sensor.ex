@@ -16,7 +16,7 @@ defmodule MagicHome.Sensing.FakeSensor do
     Registry.register(@process_registry, registry_pid_key(self()), sensor_id)
 
     ExProcess.Matcher.EventReceive.register_matcher(
-      "#{sensor_name} was triggered",
+      "#{sensor_name} triggered",
       {:sensor, sensor_id}
     )
 

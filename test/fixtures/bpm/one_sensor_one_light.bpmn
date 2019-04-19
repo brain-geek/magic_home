@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" targetNamespace="" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
   <process id="{{PROCESS_ID}">
-    <task id="Task_0jpsath" name="Toggle light The Lamp">
+    <task id="Task_0jpsath" name="Toggle The Lamp">
       <incoming>SequenceFlow_06xkxcm</incoming>
     </task>
     <sequenceFlow id="SequenceFlow_06xkxcm" sourceRef="IntermediateThrowEvent_1bw5mk3" targetRef="Task_0jpsath" />
-    <intermediateCatchEvent id="IntermediateThrowEvent_1bw5mk3" name="The Sensor was triggered">
+    <intermediateCatchEvent id="IntermediateThrowEvent_1bw5mk3" name="The Sensor triggered">
       <outgoing>SequenceFlow_06xkxcm</outgoing>
       <messageEventDefinition />
     </intermediateCatchEvent>
