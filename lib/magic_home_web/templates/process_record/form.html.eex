@@ -19,6 +19,18 @@
     </div>
   </div>
 
+  <!--
+    Task matchers:
+    <%= ExProcess.Matcher.Task.take_all() |> MapSet.to_list() |> Enum.map(&(elem(&1, 0))) |> Enum.join(" ; ") %>
+  -->
+
+  <!--
+    Flow condition matchers:
+    <%= ExProcess.Matcher.FlowCondition.take_all() |> MapSet.to_list() |> Enum.map(&(elem(&1, 0))) |> Enum.join(" ; ") %>
+  -->
+
+
+
   <div class="form-group">
     <%= label f, :body %>
     <%= hidden_input f, :body %>
