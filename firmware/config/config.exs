@@ -89,10 +89,8 @@ config :magic_home, MagicHome.Repo,
   database: "/root/magic_home-#{Mix.env}.sqlite3"
 
 # Import device specific config
-device_name = System.get_env("DEVICE")
-if device_name do
-  import_config "devices/#{device_name}.exs"
-end
+device_name = System.get_env("DEVICE") || raise "Please create a device config in firmware/config/devices and set up DEVICE environment variable"
+import_config "devices/#{device_name}.exs"
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
