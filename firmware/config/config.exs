@@ -18,21 +18,6 @@ config :shoehorn,
   init: [:nerves_runtime, :nerves_init_gadget],
   app: Mix.Project.config()[:app]
 
-# See https://hexdocs.pm/ring_logger/readme.html for more information on
-# configuring ring_logger.
-
-config :logger, backends: [RingLogger, :console]
-config :logger, level: :debug
-
-config :logger,
-  backends: [:console],
-  compile_time_purge_level: :debug
-
-# Our Console Backend-specific configuration
-config :logger, :console,
-  format: "\n##### $time $metadata[$level] $levelpad$message\n",
-  metadata: :all
-
 # Authorize the device to receive firmware using your public key.
 # See https://hexdocs.pm/nerves_firmware_ssh/readme.html for more information
 # on configuring nerves_firmware_ssh.
@@ -87,6 +72,17 @@ config :magic_home, MagicHomeWeb.Endpoint,
 config :magic_home, MagicHome.Repo,
   adapter: Sqlite.Ecto2,
   database: "/root/magic_home-#{Mix.env}.sqlite3"
+
+# See https://hexdocs.pm/ring_logger/readme.html for more information on
+# configuring ring_logger.
+
+config :logger, backends: [RingLogger, :console]
+config :logger, level: :debug
+
+# Our Console Backend-specific configuration
+config :logger, :console,
+  format: "\n##### $time $metadata[$level] $levelpad$message\n",
+  metadata: :all
 
 # Import device specific config
 device_name = System.get_env("DEVICE") || raise "Please create a device config in firmware/config/devices and set up DEVICE environment variable"
