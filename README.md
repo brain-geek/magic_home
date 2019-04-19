@@ -1,5 +1,7 @@
 # Magic Home
 
+[![Build Status](https://travis-ci.org/brain-geek/magic_home.svg?branch=master)](https://travis-ci.org/brain-geek/magic_home)
+
 Magic home is a project aimed to build a complete solution for smart home powered by Elixir.
 
 While a lot of solutions are present in the market, they usually don't offer much flexibility or require costly proprietary hardware.
