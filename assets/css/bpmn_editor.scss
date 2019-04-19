@@ -1,0 +1,8 @@
+#bpm_canvas {
+  height: 700px;
+  padding: 0;
+  margin: 0;
+
+  @import "~bpmn-js/dist/assets/diagram-js.css";
+  @import "~bpmn-font/dist/css/bpmn.css";
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>DIY Home automation: Magic Home project</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link(gettext("Dashboard"), to: Routes.dashboard_path(@conn, :index), class: "nav-link") %>
+        </li>
+        <li class="nav-item">
+          <%= link(gettext("Processes"), to: Routes.process_record_path(@conn, :index), class: "nav-link") %>
+        </li>
+        <li class="nav-item">
+          <%= link(gettext("GPIOs"), to: Routes.gpio_path(@conn, :index), class: "nav-link") %>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle bg-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Elements
+          </a>
+          <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+            <%= link(gettext("Lamps"), to: Routes.lamp_path(@conn, :index), class: "nav-link") %>
+            <%= link(gettext("Sensors"), to: Routes.sensor_path(@conn, :index), class: "nav-link") %>
+          </div>
+        </li>
+
+      </ul>
+    </nav>
+    <div class="container">
+      <%= render(MagicHomeWeb.LayoutView, "_flash.html", conn: @conn, type: :info) %>
+      <%= render(MagicHomeWeb.LayoutView, "_flash.html", conn: @conn, type: :error) %>
+
+      <main role="main">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+
+    </div> <!-- /container -->
+    <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

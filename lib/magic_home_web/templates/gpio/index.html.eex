@@ -1,0 +1,30 @@
+<h1>Listing Gpios</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Number</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for gpio <- @gpios do %>
+    <tr>
+      <td><%= gpio.name %></td>
+      <td><%= gpio.type %></td>
+      <td><%= gpio.number %></td>
+
+      <td>
+        <%= link "Show", to: Routes.gpio_path(@conn, :show, gpio) %>
+        <%= link "Edit", to: Routes.gpio_path(@conn, :edit, gpio) %>
+        <%= link "Delete", to: Routes.gpio_path(@conn, :delete, gpio), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Gpio", to: Routes.gpio_path(@conn, :new) %></span>

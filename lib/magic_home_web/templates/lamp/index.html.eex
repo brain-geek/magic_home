@@ -1,0 +1,37 @@
+<h1>Listing Lamps</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th></th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for lamp <- @lamps do %>
+    <tr>
+      <td><%= lamp.name %></td>
+      <td><%= lamp.type %></td>
+
+      <td>
+        <%= if MagicHome.Lights.LampProcess.status(lamp.id) == :on do %>
+          <i class="fas fa-lightbulb"></i>
+        <% else %>
+          <i class="far fa-lightbulb"></i>
+        <% end %>
+      </td>
+
+      <td>
+        <%= link "Show", to: Routes.lamp_path(@conn, :show, lamp) %>
+        <%= link "Edit", to: Routes.lamp_path(@conn, :edit, lamp) %>
+        <%= link "Delete", to: Routes.lamp_path(@conn, :delete, lamp), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Lamp", to: Routes.lamp_path(@conn, :new) %></span>

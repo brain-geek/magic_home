@@ -1,0 +1,28 @@
+<h1>Listing Process records</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Active</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for process_record <- @process_records do %>
+      <tr>
+        <td><%= process_record.title %></td>
+        <td><%= process_record.active %></td>
+
+        <td>
+          <%= link "Show", to: Routes.process_record_path(@conn, :show, process_record) %>
+          <%= link "Edit", to: Routes.process_record_path(@conn, :edit, process_record) %>
+          <%= link "Delete", to: Routes.process_record_path(@conn, :delete, process_record), method: :delete, data: [confirm: "Are you sure?"] %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Process record", to: Routes.process_record_path(@conn, :new) %></span>

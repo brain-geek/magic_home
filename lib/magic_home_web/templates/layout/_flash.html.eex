@@ -1,0 +1,5 @@
+<% flash = get_flash(@conn, @type) %>
+
+<%= if flash do %>
+  <p class="alert alert-<%= @type %>" role="alert"><%= flash %></p>
+<% end %>

@@ -1,0 +1,18 @@
+<h1>Show Sensor</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @sensor.name %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @sensor.type %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.sensor_path(@conn, :edit, @sensor) %></span>
+<span><%= link "Back", to: Routes.sensor_path(@conn, :index) %></span>

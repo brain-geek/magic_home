@@ -1,0 +1,5 @@
+<h1>Edit Sensor</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.sensor_path(@conn, :update, @sensor)) %>
+
+<span><%= link "Back", to: Routes.sensor_path(@conn, :index) %></span>

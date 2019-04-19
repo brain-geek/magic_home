@@ -1,0 +1,32 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name %>
+    <%= text_input f, :name, class: "form-control", placeholder: "Dining movement sensor" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :type %>
+    <%= select f, :type, [fake: "fake", gpio_switch: "gpio_switch"], class: "form-control" %>
+    <%= error_tag f, :type %>
+  </div>
+
+  <div class="form-group">
+    <% gpios_collection = MagicHome.Hardware.list_gpios_for_dropdown %>
+    <% gpios_collection = [{"", ""} | gpios_collection] %>
+
+    <%= label f, :gpio_id %>
+    <%= select f, :gpio_id, gpios_collection, class: "form-control" %>
+    <%= error_tag f, :gpio_id %>
+  </div>
+
+  <div>
+    <%= submit "Save" %>
+  </div>
+<% end %>

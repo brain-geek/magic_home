@@ -1,0 +1,21 @@
+<h1>Show Process record</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @process_record.title %>
+  </li>
+
+  <li>
+    <strong>Active:</strong>
+    <%= @process_record.active %>
+  </li>
+
+</ul>
+
+<div id="bpm_canvas" class="border border-dark"></div>
+<%= tag(:input, type: "hidden", id: "bpmn_viewer_data", value: @process_record.body) %>
+
+<span><%= link "Edit", to: Routes.process_record_path(@conn, :edit, @process_record) %></span>
+<span><%= link "Back", to: Routes.process_record_path(@conn, :index) %></span>

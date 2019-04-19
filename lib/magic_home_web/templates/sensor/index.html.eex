@@ -1,0 +1,28 @@
+<h1>Listing Sensors</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for sensor <- @sensors do %>
+    <tr>
+      <td><%= sensor.name %></td>
+      <td><%= sensor.type %></td>
+
+      <td>
+        <%= link "Show", to: Routes.sensor_path(@conn, :show, sensor) %>
+        <%= link "Edit", to: Routes.sensor_path(@conn, :edit, sensor) %>
+        <%= link "Delete", to: Routes.sensor_path(@conn, :delete, sensor), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Sensor", to: Routes.sensor_path(@conn, :new) %></span>

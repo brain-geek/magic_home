@@ -1,0 +1,18 @@
+<h1>Show Lamp</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @lamp.name %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @lamp.type %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.lamp_path(@conn, :edit, @lamp) %></span>
+<span><%= link "Back", to: Routes.lamp_path(@conn, :index) %></span>

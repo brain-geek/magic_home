@@ -1,0 +1,17 @@
+<div class="dashboard-header row text-center">
+  <h1 class="display-4">Dashboard</h1>
+</div>
+
+<div class="row marketing">
+  <div class="col-lg-6">
+    <h4>Available controls</h4>
+    <div class="list-group">
+      <%= link(gettext("Processes"), to: Routes.process_record_path(@conn, :index), class: "list-group-item list-group-item-action") %>
+      <%= link(gettext("GPIOs"), to: Routes.gpio_path(@conn, :index), class: "list-group-item list-group-item-action") %>
+      <%= link(gettext("Lamps"), to: Routes.lamp_path(@conn, :index), class: "list-group-item list-group-item-action") %>
+      <%= link(gettext("Sensors"), to: Routes.sensor_path(@conn, :index), class: "list-group-item list-group-item-action") %>
+
+      <li class="list-group-item list-group-item-info"><a href="http://github.com/brain-geek/magic_home">Get help on Github</a></li>
+    </div>
+  </div>
+</div>

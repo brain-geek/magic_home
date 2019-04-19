@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" targetNamespace="" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+  <process id="{{PROCESS_ID}">
+    <task id="Task_0jpsath" name="Toggle light The Lamp">
+      <incoming>SequenceFlow_06xkxcm</incoming>
+    </task>
+    <sequenceFlow id="SequenceFlow_06xkxcm" sourceRef="IntermediateThrowEvent_1bw5mk3" targetRef="Task_0jpsath" />
+    <intermediateCatchEvent id="IntermediateThrowEvent_1bw5mk3" name="The Sensor was triggered">
+      <outgoing>SequenceFlow_06xkxcm</outgoing>
+      <messageEventDefinition />
+    </intermediateCatchEvent>
+  </process>
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="{{PROCESS_ID}">
+      <bpmndi:BPMNShape id="Task_0jpsath_di" bpmnElement="Task_0jpsath">
+        <omgdc:Bounds x="233" y="254" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_06xkxcm_di" bpmnElement="SequenceFlow_06xkxcm">
+        <di:waypoint x="93" y="294" />
+        <di:waypoint x="233" y="294" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="IntermediateCatchEvent_0xq8fmf_di" bpmnElement="IntermediateThrowEvent_1bw5mk3">
+        <omgdc:Bounds x="57" y="276" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="35" y="319" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
+

@@ -1,0 +1,23 @@
+<h1>Show Gpio</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @gpio.name %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @gpio.type %>
+  </li>
+
+  <li>
+    <strong>Number:</strong>
+    <%= @gpio.number %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.gpio_path(@conn, :edit, @gpio) %></span>
+<span><%= link "Back", to: Routes.gpio_path(@conn, :index) %></span>
