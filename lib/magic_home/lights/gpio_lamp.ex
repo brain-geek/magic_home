@@ -2,6 +2,8 @@ defmodule MagicHome.Lights.GpioLamp do
   use GenServer
   use MagicHome.Lights.LampProcessGeneric
 
+  require Logger
+
   def start_link(opts = %{lamp: %Lamp{id: lamp_id}}) do
     GenServer.start_link(
       __MODULE__,
@@ -63,10 +65,12 @@ defmodule MagicHome.Lights.GpioLamp do
   end
 
   defp set_lamp_state(%{gpio_ref: gpio_ref, status: true}) do
+    Logger.info("Setting 0 on #{Circuits.GPIO.pin(gpio_ref)}")
     Circuits.GPIO.write(gpio_ref, 0)
   end
 
   defp set_lamp_state(%{gpio_ref: gpio_ref, status: false}) do
+    Logger.info("Setting 1 on #{Circuits.GPIO.pin(gpio_ref)}")
     Circuits.GPIO.write(gpio_ref, 1)
   end
 end
